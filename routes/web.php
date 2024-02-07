@@ -1,7 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Livewire\Device;
+use App\Livewire\DeviceAssign;
+use App\Livewire\ReleasedDevice;
 use App\Livewire\UserManagement;
+use App\Livewire\DeviceAssignShow;
+use App\Livewire\DeviceManagement;
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,3 +32,7 @@ Route::middleware([
     })->name('dashboard');
 });
 Route::get('/dashboard/userManagement', UserManagement::class);
+Route::get('/dashboard/device', Device::class);
+Route::get('/dashboard/device/deviceManagement', DeviceManagement::class);
+Route::get('/dashboard/device/deviceAssign',DeviceAssign::class);
+Route::get('/dashboard/device/releasedDevice',ReleasedDevice::class);

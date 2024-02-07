@@ -24,5 +24,9 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class
         );
 
+        $this->call(
+            StateSeeder::class
+        );
+
     }
 }
