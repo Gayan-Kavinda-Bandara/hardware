@@ -56,10 +56,24 @@
                                     @endforeach
                                     <td class="px-6 py-4 text-sm text-right">
                                         <div class="flex space-x-2">
-                                            <x-button
+                                            <div>
+                                                <x-button
                                                 wire:click="showEditUserModal({{ $user->id }})">Edit</x-button>
-                                            <x-button class="bg-red-400 hover:bg-red-600"
-                                                wire:click="deleteUser({{ $user->id }})">Delete</x-button>
+                                            </div>
+                                            <div>
+                                                <div class="alert"
+                                                :class="{primary:'alert-primary',success:'alert-success',danger:'alert-danger',warning:'alert-warning'}[(alert.type??'primary')]"
+                                                x-data="{open:false,alert:{}}"
+                                                x-show="open" x-cloak
+                                                @alert.window="open = true; setTimeout( ()=> open=false,3000); alert=$event.detail[0]">
+                                                <div class="alert-wrapper">
+                                                <strong x-html="alert.title"></strong>
+                                                <p x-html="alert.message"></p>
+                                                </div>
+                                                <i class="alert-close fa-solid fa-xmark" @click="open=false"></i>
+                                            </div>
+                                                <x-button class="bg-red-400 hover:bg-red-600" wire:click="deleteUser({{ $user->id }})">Delete</x-button>
+                                            </div>
                                         </div>
                                     </td>
                                 </tr>

@@ -14,9 +14,14 @@ class UserLevelSeeder extends Seeder
     public function run(): void
     {
         $array=[
-            ['user_level_name' => 'level 1'],
-            ['user_level_name' => 'level 2'],
-            ['user_level_name' => 'level 3']
+            ['user_level_name' => 'level 1 Admin'],
+            ['user_level_name' => 'level 2 Inventory Member'],
+            ['user_level_name' => 'level 3 Nearest Supervision Officer'],
+            ['user_level_name' => 'level 4 Assistant Director'],
+            ['user_level_name' => 'level 5 Technichian'],
+            ['user_level_name' => 'level 6 Assistant IT Officer '],
+            ['user_level_name' => 'level 7 Director- IT'],
+            ['user_level_name' => 'level 8 User'],
         ];
 
         foreach ($array as $value) {

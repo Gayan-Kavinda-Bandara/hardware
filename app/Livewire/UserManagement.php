@@ -115,7 +115,20 @@ class UserManagement extends Component
     }
 
     public function deleteUser($id){
-        User::findOrFail($id)->delete();
+        try{
+            $user = User::findOrFail($id);
+            $user->delete();
+        }catch(\Illuminate\Database\QueryException $ex){
+
+            if(true)
+        {
+            $this->dispatch('alert',[
+                'title' => 'Attention!',
+                'message' => 'This user is linked with device.',
+                'type' => 'danger'
+            ]);
+        }
+        }
         $this->reset();
     }
 
