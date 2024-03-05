@@ -36,23 +36,13 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('erererer'),
             ],
             [
-                'name' => 'Nearest Supervision Officer',
-                'email' => 'nso@gmail.com',
-                'designation' => 'Nearest Supervision Officer',
-                'employeeId'=>'0002',
-                'contNo' => '0000000002',
-                'section_id' => 2,
-                'user_level' => 3,
-                'password' => Hash::make('erererer'),
-            ],
-            [
                 'name' => 'Assistant Director',
                 'email' => 'assd@gmail.com',
                 'designation' => 'Assistant Director',
                 'employeeId'=>'0003',
                 'contNo' => '0000000003',
                 'section_id' => 2,
-                'user_level' => 4,
+                'user_level' => 3,
                 'password' => Hash::make('erererer'),
             ],
             [
@@ -62,7 +52,7 @@ class UserSeeder extends Seeder
                 'employeeId'=>'0004',
                 'contNo' => '0000000004',
                 'section_id' => 3,
-                'user_level' => 5,
+                'user_level' => 4,
                 'password' => Hash::make('erererer'),
             ],
             [
@@ -72,7 +62,7 @@ class UserSeeder extends Seeder
                 'employeeId'=>'0005',
                 'contNo' => '0000000005',
                 'section_id' => 2,
-                'user_level' => 6,
+                'user_level' => 5,
                 'password' => Hash::make('erererer'),
             ],
             [
@@ -82,7 +72,7 @@ class UserSeeder extends Seeder
                 'employeeId'=>'0006',
                 'contNo' => '0000000006',
                 'section_id' => 2,
-                'user_level' => 7,
+                'user_level' => 6,
                 'password' => Hash::make('erererer'),
             ],
             [
@@ -92,7 +82,7 @@ class UserSeeder extends Seeder
                 'employeeId'=>'0007',
                 'contNo' => '0000000007',
                 'section_id' => 3,
-                'user_level' => 8,
+                'user_level' => 7,
                 'password' => Hash::make('erererer'),
             ]
         ];
