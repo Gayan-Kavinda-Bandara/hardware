@@ -30,7 +30,8 @@
 
                 <div class="mt-4">
                     <x-label for="issue" value=" {{ __('Issue') }}" />
-                    <input wire:model.lazy="issue" class="block w-full mt-1" type="text" name="issue" required />
+                    <textarea wire:model.lazy="issue" name="issue" rows="2" cols="50">
+                    </textarea>
                     @error('issue') <span class="text-red-400">{{ $message }}</span> @enderror
                 </div>
 
@@ -119,7 +120,8 @@
 
                 <div class="mt-4">
                     <x-label for="issue" value=" {{ __('Issue') }}" />
-                    <input wire:model.lazy="issue" class="block w-full mt-1" type="text" name="issue" required disabled />
+                    <textarea wire:model.lazy="issue" name="issue" rows="2" cols="50" disabled>
+                    </textarea>
                     @error('issue') <span class="text-red-400">{{ $message }}</span> @enderror
                 </div>
 

@@ -106,7 +106,8 @@
 
                 <div class="mt-4">
                     <x-label for="issue" value=" {{ __('Issue') }}" />
-                    <input wire:model.lazy="issue" class="block w-full mt-1" type="text" name="issue" required disabled />
+                    <textarea wire:model.lazy="issue" name="issue" rows="2" cols="50">
+                    </textarea>
                     @error('issue') <span class="text-red-400">{{ $message }}</span> @enderror
                 </div>
 
@@ -124,7 +125,8 @@
                 <div>
                     <div class="mt-4">
                         <x-label for="assDremarks" value="{{ __('Remarks') }}" />
-                        <input wire:model.lazy="assDremarks" class="block w-full mt-1" type="text" name="assDremarks" required autofocus autocomplete="assDremarks"/>
+                        <textarea wire:model.lazy="assDremarks" name="assDremarks" rows="4" cols="50">
+                        </textarea>
                         @error('assDremarks') <span class="text-red-400">{{ $message }}</span> @enderror
                     </div>
                 </div>
@@ -170,13 +172,15 @@
 
                 <div class="mt-4">
                     <x-label for="issue" value=" {{ __('Issue') }}" />
-                    <input wire:model.lazy="issue" class="block w-full mt-1" type="text" name="issue" required disabled />
+                    <textarea wire:model.lazy="issue" name="issue" rows="2" cols="50" disabled>
+                    </textarea>
                     @error('issue') <span class="text-red-400">{{ $message }}</span> @enderror
                 </div>
 
                 <div class="mt-4">
-                    <x-label for="assDremarks" value="{{ __('Remarks') }}" />
-                    <input wire:model.lazy="assDremarks" class="block w-full mt-1" type="text" name="assDremarks" required autofocus autocomplete="assDremarks"/>
+                    <x-label for="assDremarks" value="{{ __('Assistant Director Remarks') }}" />
+                    <textarea wire:model.lazy="assDremarks" name="assDremarks" rows="2" cols="50" disabled>
+                    </textarea>
                     @error('assDremarks') <span class="text-red-400">{{ $message }}</span> @enderror
                 </div>
             </div>
