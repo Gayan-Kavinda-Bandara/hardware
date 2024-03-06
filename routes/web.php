@@ -2,8 +2,11 @@
 
 use App\Livewire\Device;
 use App\Livewire\DeviceAssign;
+use App\Livewire\ComplainsMenu;
+use App\Livewire\PlaceComplain;
 use App\Livewire\ReleasedDevice;
 use App\Livewire\UserManagement;
+use App\Livewire\ComplainsAction;
 use App\Livewire\DeviceAssignShow;
 use App\Livewire\DeviceManagement;
 use Illuminate\Support\Facades\Route;
@@ -36,3 +39,6 @@ Route::get('/dashboard/device', Device::class);
 Route::get('/dashboard/device/deviceManagement', DeviceManagement::class);
 Route::get('/dashboard/device/deviceAssign',DeviceAssign::class);
 Route::get('/dashboard/device/releasedDevice',ReleasedDevice::class);
+Route::get('/complainsMenu',ComplainsMenu::class);
+Route::get('/complainsMenu/placeComplain',PlaceComplain::class);
+Route::get('/complainsAction',ComplainsAction::class);
