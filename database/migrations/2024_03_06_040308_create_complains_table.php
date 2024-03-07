@@ -20,13 +20,10 @@ return new class extends Migration
             $table->string('assDremarks')->nullable();
             $table->integer('assDremarksState')->default(1);
             $table->string('techRemarks')->nullable();
-            $table->integer('hddformat')->default(1);
             $table->integer('techRemarksState')->default(1);
-            $table->integer('comCanRepair')->default(1);
+            $table->integer('techMemberID')->default(1);
             $table->string('assITRemarks')->nullable();
-            $table->string('assITRemarksState')->nullable();
-            $table->string('ItDRemarks')->nullable();
-            $table->string('ItDRemarksState')->nullable();
+            $table->integer('assITRemarksState')->default(1);
             $table->timestamps();
         });
     }

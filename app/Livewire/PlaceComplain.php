@@ -53,7 +53,9 @@ class PlaceComplain extends Component
 
     public function render()
     {
-        $response['complains'] = DB::table('complains')->where('user_id',"=", Auth::User()->id)->get();
+        $response['complains'] = DB::table('complains')
+                                ->where('assITRemarksState',"=", 1)
+                                ->where('user_id',"=", Auth::User()->id)->get();
         return view('livewire.place-complain')->layout('layouts.app')->with($response);
     }
 }

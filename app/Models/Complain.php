@@ -9,6 +9,6 @@ class Complain extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id','device_id','section_id','issue','assDremarks','assDremarksState','techRemarks','hddformat','techRemarksState','comCanRepair','assITRemarks','assITRemarksState','ItDRemarks','ItDRemarksState'];
+    protected $fillable = ['user_id','device_id','section_id','issue','assDremarks','assDremarksState','techRemarks','techRemarksState','techMemberID','assITRemarks','assITRemarksState'];
 
 }

@@ -18,6 +18,7 @@
     @elseif (Auth::User()->user_level == 5)
     <button wire:navigate href="/complainsMenu" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Complains</button>
     <button wire:navigate href="/complainsAction" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Complains Action</button>
+    <button wire:navigate href="/completedComplains" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Completed Complains</button>
     @elseif (Auth::User()->user_level == 6)
     <button wire:navigate href="/complainsMenu" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Complains</button>
     <button wire:navigate href="/complainsAction" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Complains Action</button>
