@@ -66,23 +66,13 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('erererer'),
             ],
             [
-                'name' => 'Director- IT',
-                'email' => 'dit@gmail.com',
-                'designation' => 'Director- IT',
-                'employeeId'=>'0006',
-                'contNo' => '0000000006',
-                'section_id' => 3,
-                'user_level' => 6,
-                'password' => Hash::make('erererer'),
-            ],
-            [
                 'name' => 'Test User',
                 'email' => 'testUser@gmail.com',
                 'designation' => 'Test User',
                 'employeeId'=>'0007',
                 'contNo' => '0000000007',
                 'section_id' => 3,
-                'user_level' => 7,
+                'user_level' => 6,
                 'password' => Hash::make('erererer'),
             ]
         ];

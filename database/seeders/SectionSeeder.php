@@ -14,9 +14,11 @@ class SectionSeeder extends Seeder
     public function run(): void
     {
         $array=[
-            ['section_name' => 'Office Section'],
-            ['section_name' => '1920 Help Center Section'],
-            ['section_name' => 'IT Section']
+            ['section_name' => 'Office'],
+            ['section_name' => '1920'],
+            ['section_name' => 'IT'],
+            ['section_name' => 'Graphic'],
+            ['section_name' => 'Radio']
         ];
 
         foreach ($array as $value) {

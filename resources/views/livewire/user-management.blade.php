@@ -1,7 +1,5 @@
-<div class="max-w-6xl mx-auto ">
+<div class="max-w-5xl mx-auto ">
     <div class="flex justify-end p-2 m-2 ">
-        <input type="search" wire:model="search" wire:click="gotoPage(1)" placeholder="Search..."
-            class="block px-3 py-2 text-base leading-normal transition duration-150 ease-in-out bg-white border border-gray-400 rounded-md appearance-none sm:text-sm sm:leading-5">
         <x-button wire:click="showRegModal">Register User</x-button>
     </div>
     <div class="p-2 m-2">
@@ -80,7 +78,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <div class="p-2 m-2">Pagination</div>
+                    <div class="p-2 m-2">{{ $users->links() }}</div>
                 </div>
             </div>
         </div>

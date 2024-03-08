@@ -31,7 +31,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                <div class="p-2 m-2">Pagination</div>
+                <div class="p-2 m-2">{{ $deviceConnection->links() }}</div>
             </div>
         </div>
     </div>

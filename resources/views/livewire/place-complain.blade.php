@@ -17,7 +17,8 @@
                             $test=DB::table("device_connets")
                             ->select("model","device_id","device_name")
                             ->join("devices","devices.id","=","device_connets.device_id")
-                            ->where("user_id","=",Auth::User()->id)->get()
+                            ->where("user_id","=",Auth::User()->id)
+                            ->where("state","=",1)->get()
                         }}
                     </div>
 
@@ -76,12 +77,20 @@
         <x-slot name="title">Sent Data</x-slot>
         <x-slot name="content">
             <div>
-                <div>
-                    <x-label for="user_id" value="{{ __('User Id') }}" />
-                    <input wire:model.lazy="user_id" class="block w-full mt-1" type="text" name="user_id" required autofocus autocomplete="user_id" disabled/>
-                    @error('user_id') <span class="text-red-400">{{ $message }}</span> @enderror
+                <div class="mt-4">
+                    <div class="hidden">
+                        {{
+                            $test=DB::table("device_connets")
+                            ->join("users","users.id","=","device_connets.user_id")
+                            ->where("device_id","=",$device_id)
+                            ->where("user_id","=",$user_id)->get()
+                        }}
+                    </div>
+                    @foreach ($test as $data)
+                    <x-label for="user_id" value="{{ __('User Name ') }}-{{ $data->name }}"/>
+                    @endforeach
                 </div>
-
+                
                 <div class="mt-4">
                     <x-label for="device_id" value="{{ __('Device Id') }}" />
                     <select input wire:model.lazy="device_id" class="block w-full mt-1" type="text" name="device_id" required autofocus autocomplete="device_id" disabled>

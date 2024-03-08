@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Device;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class DeviceManagement extends Component
 {
@@ -17,6 +18,8 @@ class DeviceManagement extends Component
     public $isEditMode = false;
     public $device;
 
+    use WithPagination;
+
     public function showDeviceModal()
     {
         $this->reset();
@@ -26,7 +29,7 @@ class DeviceManagement extends Component
     public function render()
     {
         return view('livewire.device-management',[
-            'devices' =>device::all()
+            'devices' =>device::paginate(10)
         ])->layout('layouts.app');
     }
 
@@ -34,7 +37,6 @@ class DeviceManagement extends Component
     {
         $this->validate([
             'device_name' => 'required|string|max:100',
-            'serial_no' => 'required|string|max:50',
             'model' => 'required|string|max:50',
             'brand' => 'required|string|max:50',
         ]);
@@ -64,7 +66,6 @@ class DeviceManagement extends Component
     {
         $this->validate([
             'device_name' => 'required|string|max:100',
-            'serial_no' => 'required|string|max:50',
             'model' => 'required|string|max:50',
             'brand' => 'required|string|max:50',
         ]);

@@ -12,8 +12,8 @@
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-gray-200">Id</th>
                       <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-gray-200">Serial No</th>
                       <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-gray-200">Device Name</th>
-                      <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-gray-200">Model</th>
                       <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-gray-200">Brand</th>
+                      <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-gray-200">Model</th>
                       <th scope="col" class="relative px-6 py-3">Edit/Delete</th>
                     </tr>
                   </thead>
@@ -51,7 +51,7 @@
                     @endforeach
                   </tbody>
                 </table>
-                <div class="p-2 m-2">Pagination</div>
+                <div class="p-2 m-2">{{ $devices->links() }}</div>
               </div>
             </div>
           </div>
@@ -78,15 +78,15 @@
                     </div>
 
                     <div class="mt-4">
-                        <x-label for="model" value="{{ __('Model') }}" />
-                        <input wire:model.lazy="model" class="block w-full mt-1" type="text" name="model" required />
-                        @error('model') <span class="text-red-400">{{ $message }}</span> @enderror
-                    </div>
-
-                    <div class="mt-4">
                         <x-label for="brand" value=" {{ __('Brand') }}" />
                         <input wire:model.lazy="brand" class="block w-full mt-1" type="text" name="brand" required />
                         @error('brand') <span class="text-red-400">{{ $message }}</span> @enderror
+                    </div>
+
+                    <div class="mt-4">
+                        <x-label for="model" value="{{ __('Model') }}" />
+                        <input wire:model.lazy="model" class="block w-full mt-1" type="text" name="model" required />
+                        @error('model') <span class="text-red-400">{{ $message }}</span> @enderror
                     </div>
 
                 </div>

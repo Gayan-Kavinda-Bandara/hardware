@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\DeviceConnet;
+use Livewire\WithPagination;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 
@@ -18,6 +19,8 @@ class DeviceAssign extends Component
     public $state;
     public $release_date;
     public $device_connet;
+
+    use WithPagination;
 
     public function showDeviceAssignModal()
     {
@@ -69,7 +72,7 @@ class DeviceAssign extends Component
 
     public function render()
     {
-        $response['deviceConnection'] = DB::table('device_connets')->where('state',"=", 1)->get();
+        $response['deviceConnection'] = DB::table('device_connets')->where('state',"=", 1)->paginate(10);
         return view('livewire.device-assign')->layout('layouts.app')->with($response);
     }
 }

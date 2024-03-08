@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('devices', function (Blueprint $table) {
             $table->id();
             $table->string('device_name');
-            $table->text('serial_no');
+            $table->text('serial_no')->nullable();
             $table->string('model');
             $table->string('brand');
             $table->timestamps();

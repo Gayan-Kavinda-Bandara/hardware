@@ -31,14 +31,7 @@ class UserManagement extends Component
     public function render()
     {
         return view('livewire.user-management',[
-            'users'=>DB::table('users')
-           ->select('users.name as name')
-           ->where(function($a) {
-            $a->where('name', 'like', '%'.$this->search.'%' );
-            })
-            ->orderBy('users.id')
-           ->paginate(20),
-            'users' => User::all()
+            'users' => User::paginate(10)
         ])->layout('layouts.app');
     }
 
