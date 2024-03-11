@@ -39,7 +39,8 @@
                         {{
                             $test=DB::table("complains")
                             ->join("sections","sections.id","=","complains.section_id")
-                            ->where("section_id","=",$complain->section_id)->get()
+                            ->where("section_id","=",$complain->section_id)
+                            ->where("device_id","=",$complain->device_id)->get()
                         }}
                     </div>
                     @foreach ($test as $data)
