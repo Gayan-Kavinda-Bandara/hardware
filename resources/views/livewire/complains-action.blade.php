@@ -118,12 +118,6 @@
                     @endforeach
                 </div>
 
-                <div class="mt-4">
-                    <x-label for="device_id" value="{{ __('Device ID') }}" />
-                    <input wire:model.lazy="device_id" class="block w-full mt-1" type="text" name="device_id" required autofocus autocomplete="device_id" disabled/>
-                    @error('device_id') <span class="text-red-400">{{ $message }}</span> @enderror
-                </div>
-
                 <div class="sm:col-span-6">
                     <label for="section" class="block text-sm font-medium text-gray-700"> Section </label>
                     <div class="mt-1">
@@ -138,6 +132,27 @@
                     @error('section')
                         <span class="text-red-400">{{ $message }}</span>
                     @enderror
+                </div>
+
+                <div class="mt-4">
+                    <x-label for="device_id" value="{{ __('Device Type and Model') }}" />
+                    <select input wire:model.lazy="device_id" class="block w-full mt-1" type="text" name="device_id" required autofocus autocomplete="device_id" disabled>
+                    <option value="">Select Device</option>
+
+                    <div class="hidden">
+                        {{
+                            $test=DB::table("device_connets")
+                            ->join("devices","devices.id","=","device_connets.device_id")
+                            ->join("device_checks","device_checks.id","=","devices.device_check_id")
+                            ->get()
+                        }}
+                    </div>
+
+                    @foreach ($test as $data)
+                    <option value="{{ $data->device_id }}">{{ $data->main_device_name }}-{{ $data->model }}</option>
+                    @endforeach
+                </select>
+                    @error('device_id') <span class="text-red-400">{{ $message }}</span> @enderror
                 </div>
 
                 <div class="mt-4">
@@ -180,12 +195,6 @@
                     @endforeach
                 </div>
 
-                <div class="mt-4">
-                    <x-label for="device_id" value="{{ __('Device ID') }}" />
-                    <input wire:model.lazy="device_id" class="block w-full mt-1" type="text" name="device_id" required autofocus autocomplete="device_id" disabled/>
-                    @error('device_id') <span class="text-red-400">{{ $message }}</span> @enderror
-                </div>
-
                 <div class="sm:col-span-6">
                     <label for="section" class="block text-sm font-medium text-gray-700"> Section </label>
                     <div class="mt-1">
@@ -200,6 +209,27 @@
                     @error('section')
                         <span class="text-red-400">{{ $message }}</span>
                     @enderror
+                </div>
+
+                <div class="mt-4">
+                    <x-label for="device_id" value="{{ __('Device Type and Model') }}" />
+                    <select input wire:model.lazy="device_id" class="block w-full mt-1" type="text" name="device_id" required autofocus autocomplete="device_id" disabled>
+                    <option value="">Select Device</option>
+
+                    <div class="hidden">
+                        {{
+                            $test=DB::table("device_connets")
+                            ->join("devices","devices.id","=","device_connets.device_id")
+                            ->join("device_checks","device_checks.id","=","devices.device_check_id")
+                            ->get()
+                        }}
+                    </div>
+
+                    @foreach ($test as $data)
+                    <option value="{{ $data->device_id }}">{{ $data->main_device_name }}-{{ $data->model }}</option>
+                    @endforeach
+                </select>
+                    @error('device_id') <span class="text-red-400">{{ $message }}</span> @enderror
                 </div>
 
                 <div class="mt-4">
@@ -249,12 +279,6 @@
                     @endforeach
                 </div>
 
-                <div>
-                    <x-label for="device_id" value="{{ __('Device ID') }}" />
-                    <input wire:model.lazy="device_id" class="block w-full mt-1" type="text" name="device_id" required autofocus autocomplete="device_id" disabled/>
-                    @error('device_id') <span class="text-red-400">{{ $message }}</span> @enderror
-                </div>
-
                 <div class="sm:col-span-6">
                     <label for="section" class="block text-sm font-medium text-gray-700"> Section </label>
                     <div class="mt-1">
@@ -269,6 +293,27 @@
                     @error('section')
                         <span class="text-red-400">{{ $message }}</span>
                     @enderror
+                </div>
+
+                <div class="mt-4">
+                    <x-label for="device_id" value="{{ __('Device Type and Model') }}" />
+                    <select input wire:model.lazy="device_id" class="block w-full mt-1" type="text" name="device_id" required autofocus autocomplete="device_id" disabled>
+                    <option value="">Select Device</option>
+
+                    <div class="hidden">
+                        {{
+                            $test=DB::table("device_connets")
+                            ->join("devices","devices.id","=","device_connets.device_id")
+                            ->join("device_checks","device_checks.id","=","devices.device_check_id")
+                            ->get()
+                        }}
+                    </div>
+
+                    @foreach ($test as $data)
+                    <option value="{{ $data->device_id }}">{{ $data->main_device_name }}-{{ $data->model }}</option>
+                    @endforeach
+                </select>
+                    @error('device_id') <span class="text-red-400">{{ $message }}</span> @enderror
                 </div>
 
                 <div class="mt-4">

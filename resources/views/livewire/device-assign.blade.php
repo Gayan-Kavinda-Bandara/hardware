@@ -47,37 +47,46 @@
             <x-slot name="title">Assign Device</x-slot>
             <x-slot name="content">
                 <div>
-                    <div class="sm:col-span-6">
-                        <label for="UserId" class="block text-sm font-medium text-gray-700"> User Id </label>
-                        <div class="mt-1">
-                            <select name="user_id" wire:model.lazy="user_id"
-                                class="block w-full mt-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                                <option value="">Select User Id</option>
-                                @foreach (App\Models\User::orderBy('id', 'ASC')->get() as $data)
-                                    <option value="{{ $data->id }}">{{ $data->id }}</option>
-                                @endforeach
-                            </select>
+                    <div class="mt-4">
+                        <x-label for="device_id" value="{{ __('User') }}" />
+                        <select input wire:model.lazy="user_id" class="block w-full mt-1" type="text" name="user_id" required autofocus autocomplete="user_id">
+                        <option value="">Select User</option>
+
+                        <div class="hidden">
+                            {{
+                                $test=DB::table("users")
+                                ->select("users.id","name")
+                                ->get()
+                            }}
                         </div>
-                        @error('user_id')
-                            <span class="text-red-400">{{ $message }}</span>
-                        @enderror
+
+                        @foreach ($test as $data)
+                        <option value="{{ $data->id }}">{{ $data->name }}</option>
+                        @endforeach
+                    </select>
+                        @error('device_id') <span class="text-red-400">{{ $message }}</span> @enderror
                     </div>
-                    <div class="sm:col-span-6">
-                        <label for="deviceId" class="block text-sm font-medium text-gray-700"> Device Id</label>
-                        <div class="mt-1">
-                            <select name="device_id" wire:model.lazy="device_id"
-                                class="block w-full mt-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                                <option value="">Select Device Id</option>
-                                @foreach (App\Models\Device::orderBy('id', 'ASC')->get() as $data)
-                                    <option value="{{ $data->id }}">{{ $data->id }}</option>
-                                @endforeach
-                            </select>
+                    <div class="mt-4">
+                        <x-label for="device_id" value="{{ __('Device') }}" />
+                        <select input wire:model.lazy="device_id" class="block w-full mt-1" type="text" name="device_id" required autofocus autocomplete="device_id">
+                        <option value="">Select Device</option>
+
+                        <div class="hidden">
+                            {{
+                                $test=DB::table("devices")
+                                ->select("model","devices.id","main_device_name")
+                                ->join("device_checks","device_checks.id","=","devices.device_check_id")
+                                ->get()
+                            }}
                         </div>
-                        @error('device_id')
-                            <span class="text-red-400">{{ $message }}</span>
-                        @enderror
+
+                        @foreach ($test as $data)
+                        <option value="{{ $data->id }}">{{ $data->main_device_name }}-{{ $data->model }}</option>
+                        @endforeach
+                    </select>
+                        @error('device_id') <span class="text-red-400">{{ $message }}</span> @enderror
                     </div>
-                    <div>
+                    <div class="mt-4">
                         <x-label for="AssignDate" value="{{ __('Assign Date') }}" />
                         <input wire:model.lazy="assign_date" class="block w-full mt-1" type="date" name="assign_date"  required autofocus autocomplete="assign_date" />
                         @error('assign_date') <span class="text-red-400">{{ $message }}</span> @enderror

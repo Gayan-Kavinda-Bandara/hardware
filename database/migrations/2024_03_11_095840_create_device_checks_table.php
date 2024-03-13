@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('devices', function (Blueprint $table) {
+        Schema::create('device_checks', function (Blueprint $table) {
             $table->id();
-            $table->unsignedbiginteger ('device_check_id');
-            $table->string('other_device_name')->nullable();
-            $table->text('serial_no')->nullable();
-            $table->string('model');
-            $table->string('brand');
+            $table->string("main_device_name");
             $table->timestamps();
         });
     }
@@ -27,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('devices');
+        Schema::dropIfExists('device_checks');
     }
 };

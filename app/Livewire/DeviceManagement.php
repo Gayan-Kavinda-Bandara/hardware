@@ -10,13 +10,15 @@ class DeviceManagement extends Component
 {
     public $showingDeviceModal=false;
 
-    public $device_name;
     public $serial_no;
     public $model;
     public $brand;
     public $employee_id;
     public $isEditMode = false;
     public $device;
+
+    public $device_check_id;
+    public $other_device_name;
 
     use WithPagination;
 
@@ -36,13 +38,14 @@ class DeviceManagement extends Component
     public function storeDevice()
     {
         $this->validate([
-            'device_name' => 'required|string|max:100',
+            'device_check_id' => 'required',
             'model' => 'required|string|max:50',
             'brand' => 'required|string|max:50',
         ]);
 
         Device::create([
-        'device_name' => $this->device_name,
+        'device_check_id' => $this->device_check_id,
+        'other_device_name' => $this->other_device_name,
         'serial_no' => $this->serial_no,
         'model' => $this->model,
         'brand' => $this->brand,
@@ -54,7 +57,8 @@ class DeviceManagement extends Component
     public function showEditDeviceModal($id)
     {
         $this->device = Device::findOrFail($id);
-        $this->device_name = $this->device->device_name;
+        $this->device_check_id = $this->device->device_check_id;
+        $this->other_device_name = $this->device->other_device_name;
         $this->serial_no = $this->device->serial_no;
         $this->model = $this->device->model;
         $this->brand = $this->device->brand;
@@ -65,13 +69,14 @@ class DeviceManagement extends Component
     public function UpdateDevice()
     {
         $this->validate([
-            'device_name' => 'required|string|max:100',
+            'device_check_id' => 'required',
             'model' => 'required|string|max:50',
             'brand' => 'required|string|max:50',
         ]);
 
         $this->device->update([
-            'device_name' => $this->device_name,
+            'device_check_id' => $this->device_check_id,
+            'other_device_name' => $this->other_device_name,
             'serial_no' => $this->serial_no,
             'model' => $this->model,
             'brand' => $this->brand,

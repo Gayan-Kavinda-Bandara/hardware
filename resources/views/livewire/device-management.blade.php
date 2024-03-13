@@ -10,8 +10,8 @@
                   <thead class="bg-gray-50 dark:bg-gray-600 dark:text-gray-200">
                     <tr>
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-gray-200">Id</th>
-                      <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-gray-200">Serial No</th>
                       <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-gray-200">Device Name</th>
+                      <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-gray-200">Serial No</th>
                       <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-gray-200">Brand</th>
                       <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-gray-200">Model</th>
                       <th scope="col" class="relative px-6 py-3">Edit/Delete</th>
@@ -22,8 +22,23 @@
                     @foreach ($devices as $device)
                     <tr>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $device->id }}</td>
+                        @if($device->device_check_id == 6)
+                            <td class="px-6 py-4 whitespace-nowrap">{{ $device->other_device_name }}</td>
+                        @else
+                            <div class="hidden">
+                            {{
+                                $test=DB::table("devices")
+                                ->join("device_checks","device_checks.id","=","devices.device_check_id")
+                                ->where("device_check_id","=",$device->device_check_id)->get()
+                            }}
+                        </div>
+                        @foreach ($test as $data)
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            {{ $data->main_device_name }}
+                        </td>
+                        @endforeach
+                        @endif
                         <td class="px-6 py-4 whitespace-nowrap">{{ $device->serial_no }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">{{ $device->device_name }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $device->brand }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $device->model }}</td>
                         <td class="px-6 py-4 text-sm text-right">
@@ -65,11 +80,29 @@
             @endif
             <x-slot name="content">
                 <div>
-                    <div>
-                        <x-label for="deviceName" value="{{ __('Device Name') }}" />
-                        <input wire:model.lazy="device_name" class="block w-full mt-1" type="text" name="device_name" required autofocus autocomplete="device_name" />
-                        @error('device_name') <span class="text-red-400">{{ $message }}</span> @enderror
+                    <div class="sm:col-span-6">
+                        <label for="device_check_id" class="block text-sm font-medium text-gray-700"> Device Type </label>
+                        <div class="mt-1">
+                            <select name="device_check_id" wire:model.lazy="device_check_id"
+                                class="block w-full mt-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                <option value="">Select Device</option>
+                                @foreach (App\Models\DeviceCheck::orderBy('id', 'ASC')->get() as $data)
+                                    <option value="{{ $data->id }}">{{ $data->main_device_name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @error('section')
+                            <span class="text-red-400">{{ $message }}</span>
+                        @enderror
                     </div>
+
+                    @if ($device_check_id == 6)
+                    <div class="mt-4">
+                        <x-label for="other_device_name" value="{{ __('Type Device Name') }}" />
+                        <input wire:model.lazy="other_device_name" class="block w-full mt-1" type="text" name="other_device_name"/>
+                        @error('other_device_name') <span class="text-red-400">{{ $message }}</span> @enderror
+                    </div>
+                    @endif
 
                     <div class="mt-4">
                         <x-label for="serialNo" value="{{ __('Serial No') }}" />

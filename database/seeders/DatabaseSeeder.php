@@ -28,5 +28,8 @@ class DatabaseSeeder extends Seeder
             StateSeeder::class
         );
 
+        $this->call(
+            DeviceCheckSeeder::class
+        );
     }
 }
