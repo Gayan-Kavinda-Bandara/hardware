@@ -62,7 +62,7 @@
                         <td class="px-6 py-4 whitespace-nowrap">{{ $complain->id }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">Ongoing</td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <x-button wire:click="showComplain({{ $complain->id }})">View</x-button>
+                            <x-button class="bg-sky-400" wire:click="showComplain({{ $complain->id }})">View</x-button>
                         </td>
                         </td>
                       </tr>

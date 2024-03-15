@@ -1,6 +1,6 @@
-<div class="max-w-5xl mx-auto ">
+<div class="max-w-6xl mx-auto ">
     <div class="flex justify-end p-2 m-2 ">
-        <x-button wire:click="showRegModal">Register User</x-button>
+        <x-button class="bg-black" wire:click="showRegModal">Register User</x-button>
     </div>
     <div class="p-2 m-2">
         <div class="my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

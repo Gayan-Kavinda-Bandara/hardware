@@ -39,7 +39,7 @@
             <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
               <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
                 <table class="w-full divide-y divide-gray-200">
-                  <thead class="bg-orange-50 dark:bg-emerald-600 dark:text-orange-200">
+                  <thead class="bg-orange-50 dark:bg-sky-600 dark:text-orange-200">
                     <tr>
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-gray-200">Id</th>
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-gray-200">Status</th>
@@ -71,7 +71,7 @@
             <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
               <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
                 <table class="w-full divide-y divide-gray-200">
-                  <thead class="bg-cyan-50 dark:bg-cyan-600 dark:text-orange-200">
+                  <thead class="bg-cyan-50 dark:bg-pink-600 dark:text-orange-200">
                     <tr>
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-gray-200">Id</th>
                         <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-gray-200">Status</th>
@@ -86,7 +86,7 @@
                         <td class="px-6 py-4 whitespace-nowrap">{{ $complain->id }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">Ongoing</td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <x-button class="bg-sky-400 hover:bg-sky-600" wire:click="showComplainThree({{ $complain->id }})">View</x-button>
+                            <x-button class="bg-rose-400 hover:bg-rose-600" wire:click="showComplainThree({{ $complain->id }})">View</x-button>
                         </td>
                       </tr>
                     @endforeach

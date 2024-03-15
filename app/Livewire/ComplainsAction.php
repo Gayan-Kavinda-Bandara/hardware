@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Carbon\Carbon;
 use Livewire\Component;
 use App\Models\Complain;
 use Illuminate\Support\Facades\DB;
@@ -105,6 +106,7 @@ class ComplainsAction extends Component
         $this->assITreview->update([
             'assITRemarks' => $this->assITRemarks,
             'assITRemarksState' => 2,
+            'completedDate' => Carbon::now()->toDateString() 
         ]);
 
         $this->reset();

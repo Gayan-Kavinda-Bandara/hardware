@@ -24,6 +24,7 @@ return new class extends Migration
             $table->integer('techMemberID')->default(1);
             $table->string('assITRemarks')->nullable();
             $table->integer('assITRemarksState')->default(1);
+            $table->string('completedDate')->nullable();
             $table->timestamps();
         });
     }
