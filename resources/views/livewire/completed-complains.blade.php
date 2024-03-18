@@ -1,4 +1,8 @@
 <div>
+    <div class="flex justify-end p-2 m-2 space-x-10">
+        <input type="search" wire:click="gotoPage(1)" wire:model.lazy="search" placeholder="Search..." class="block px-3 py-2 text-base leading-normal transition duration-150 ease-in-out bg-white border border-gray-400 rounded-md appearance-none sm:text-sm sm:leading-5">
+        <x-button class="bg-indigo-600" >Search</x-button>
+    </div>
     <div class="p-2 m-2">
         <div class="my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -59,7 +63,7 @@
                             {{
                                 $test=DB::table("complains")
                                 ->join("sections","sections.id","=","complains.section_id")
-                                ->where("section_id","=",$complain->section_id)
+                                ->where("section_id","=",$complain->sid)
                                 ->where("device_id","=",$complain->device_id)
                                 ->where("complains.id","=",$complain->id)->get()
                             }}

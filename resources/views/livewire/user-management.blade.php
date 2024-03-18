@@ -1,5 +1,7 @@
 <div class="max-w-6xl mx-auto ">
-    <div class="flex justify-end p-2 m-2 ">
+    <div class="flex justify-end p-2 m-2 space-x-12">
+        <input type="search" wire:click="gotoPage(1)" wire:model.lazy="search" placeholder="Search..." class="block px-3 py-2 text-base leading-normal transition duration-150 ease-in-out bg-white border border-gray-400 rounded-md appearance-none sm:text-sm sm:leading-5">
+        <x-button class="bg-sky-600" >Search</x-button>
         <x-button class="bg-black" wire:click="showRegModal">Register User</x-button>
     </div>
     <div class="p-2 m-2">
