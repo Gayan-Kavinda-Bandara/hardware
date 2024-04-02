@@ -18,7 +18,7 @@ class UserLevelSeeder extends Seeder
             ['user_level_name' => 'level 2 Inventory Member'],
             ['user_level_name' => 'level 3 Assistant Director'],
             ['user_level_name' => 'level 4 Technichian'],
-            ['user_level_name' => 'level 5 Assistant IT Officer '],
+            ['user_level_name' => 'level 5 IT Officer '],
             ['user_level_name' => 'level 6 User'],
         ];
 

@@ -2,8 +2,6 @@
     <div class="relative flex flex-row items-center justify-center h-screen bg-center bg-cover space-x-14" style="background-image: url('/images/wallpaper.jpg')">
     @if (Auth::User()->user_level == 1)
     <button href="/dashboard/userManagement" wire:navigate class="px-4 py-2 font-bold text-black scale-125 rounded bg-lime-300 hover:bg-lime-600">User Management</button>
-    <button wire:navigate href="/dashboard/device" class="px-4 py-2 font-bold text-black scale-125 rounded bg-lime-300 hover:bg-lime-600">Devices</button>
-    <button wire:navigate href="/placeComplain" class="px-4 py-2 font-bold text-black scale-125 rounded bg-lime-300 hover:bg-lime-600">Place a Complain</button>
     @elseif (Auth::User()->user_level == 2)
     <button wire:navigate href="/dashboard/device" class="px-4 py-2 font-bold text-black scale-125 rounded bg-lime-300 hover:bg-lime-600">Devices</button>
     <button wire:navigate href="/placeComplain" class="px-4 py-2 font-bold text-black scale-125 rounded bg-lime-300 hover:bg-lime-600">Place a Complain</button>
