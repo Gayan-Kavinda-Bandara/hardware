@@ -35,12 +35,12 @@
         <div>
             @if (Route::has('login'))
             @auth
-            <button class="px-4 py-2 font-bold text-white bg-red-500 rounded hover:bg-red-700"><a href="{{ url('/dashboard') }}" class="font-semibold text-white">Dashboard</a></button>
+            <button class="px-4 py-2 font-bold text-white bg-red-500 rounded hover:bg-red-700"><a href="{{ url('/dashboard') }}" class="text-lg font-semibold text-white">Dashboard</a></button>
             @else
-                <button class="px-4 py-2 font-bold text-white bg-red-500 rounded hover:bg-red-700"><a href="{{ route('login') }}" class="font-semibold text-white">Log in</a></button>
+                <button class="px-4 py-2 font-bold text-white bg-red-500 rounded hover:bg-red-700"><a href="{{ route('login') }}" class="text-lg font-semibold text-white">Log in</a></button>
 
                 @if (Route::has('register'))
-                    <button class="px-4 py-2 font-bold text-white bg-red-500 rounded hover:bg-red-700"><a href="{{ route('register') }}" class="font-semibold text-white">Register</a></button>
+                    <button class="px-4 py-2 font-bold text-white bg-red-500 rounded hover:bg-red-700"><a href="{{ route('register') }}" class="text-lg font-semibold text-white">Register</a></button>
                 @endif
             @endauth
         @endif

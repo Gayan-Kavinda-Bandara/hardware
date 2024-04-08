@@ -163,7 +163,7 @@
                 </div>
 
                 <div class="mt-4">
-                    <x-label for="assDremarks" value="{{ __('Remarks') }}" />
+                    <x-label for="assDremarks" value="{{ __('Enter Assistant Director Remarks') }}" />
                     <textarea wire:model.lazy="assDremarks" name="assDremarks" rows="3" cols="50">
                     </textarea>
                     @error('assDremarks') <span class="text-red-400">{{ $message }}</span> @enderror
@@ -247,7 +247,7 @@
                 </div>
 
                 <div class="mt-4">
-                    <x-label for="techRemarks" value="{{ __('Remarks') }}" />
+                    <x-label for="techRemarks" value="{{ __('Enter Technichian Remarks') }}" />
                     <textarea wire:model.lazy="techRemarks" name="techRemarks" rows="3" cols="50">
                     </textarea>
                     @error('techRemarks') <span class="text-red-400">{{ $message }}</span> @enderror
@@ -338,7 +338,7 @@
                 </div>
 
                 <div class="mt-4">
-                    <x-label for="assITRemarks" value="{{ __('Remarks') }}" />
+                    <x-label for="assITRemarks" value="{{ __('Enter IT Officer Remarks') }}" />
                     <textarea wire:model.lazy="assITRemarks" name="assITRemarks" rows="3" cols="50">
                     </textarea>
                     @error('assITRemarks') <span class="text-red-400">{{ $message }}</span> @enderror
