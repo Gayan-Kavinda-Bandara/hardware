@@ -106,7 +106,7 @@ class ComplainsAction extends Component
         $this->assITreview->update([
             'assITRemarks' => $this->assITRemarks,
             'assITRemarksState' => 2,
-            'completedDate' => Carbon::now()->toDateString() 
+            'completedDate' => Carbon::now()->toDateString()
         ]);
 
         $this->reset();
@@ -135,6 +135,13 @@ class ComplainsAction extends Component
                                     ->where('assDremarksState',"=", 2)
                                     ->where('techRemarksState',"=", 2)
                                     ->where('assITRemarksState',"=", 1)->get();
+            return view('livewire.complains-action')->layout('layouts.app')->with($response);
+        }
+        else if(Auth::user()->user_level == 6) // For Assistant IT Director
+        {
+            $response['complains'] = DB::table('complains')
+                                    ->where('assDremarksState',"=", 1)
+                                    ->where('section_id','=',Auth::User()->section_id)->get();
             return view('livewire.complains-action')->layout('layouts.app')->with($response);
         }
     }

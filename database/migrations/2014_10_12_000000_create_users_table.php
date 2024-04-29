@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('designation');
             $table->string('employeeId');
             $table->string('contNo');
-            $table->integer('user_level')->default(6);
+            $table->integer('user_level')->default(7);
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();

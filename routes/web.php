@@ -8,6 +8,7 @@ use App\Livewire\UserManagement;
 use App\Livewire\ComplainsAction;
 use App\Livewire\DeviceAssignShow;
 use App\Livewire\DeviceManagement;
+use App\Livewire\OngoingComplains;
 use App\Livewire\CompletedComplains;
 use Illuminate\Support\Facades\Route;
 /*
@@ -42,3 +43,4 @@ Route::get('/dashboard/device/releasedDevice',ReleasedDevice::class);
 Route::get('/placeComplain',PlaceComplain::class);
 Route::get('/complainsAction',ComplainsAction::class);
 Route::get('/completedComplains',CompletedComplains::class);
+Route::get('/ongoingComplains',OngoingComplains::class);

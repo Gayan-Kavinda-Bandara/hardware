@@ -60,7 +60,13 @@
                     @foreach ($complains as $complain)
                     <tr>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $complain->id }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">Ongoing</td>
+                        @if ($complain->assDremarksState == 1)
+                        <td class="px-6 py-4 whitespace-nowrap">Wating for assistant director review</td>
+                        @elseif ($complain->techRemarksState == 1)
+                        <td class="px-6 py-4 whitespace-nowrap">Wating for Technichian review</td>
+                        @elseif ($complain->assITRemarksState == 1)
+                        <td class="px-6 py-4 whitespace-nowrap">Wating for IT officer review</td>
+                        @endif
                         <td class="px-6 py-4 whitespace-nowrap">
                             <x-button class="bg-sky-400" wire:click="showComplain({{ $complain->id }})">View</x-button>
                         </td>

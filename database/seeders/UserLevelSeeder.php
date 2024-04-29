@@ -19,7 +19,8 @@ class UserLevelSeeder extends Seeder
             ['user_level_name' => 'level 3 Assistant Director'],
             ['user_level_name' => 'level 4 Technichian'],
             ['user_level_name' => 'level 5 IT Officer '],
-            ['user_level_name' => 'level 6 User'],
+            ['user_level_name' => 'level 6 IT Director '],
+            ['user_level_name' => 'level 7 User'],
         ];
 
         foreach ($array as $value) {

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('device_id')->nullable()->constrained('devices');
             $table->foreignId('section_id')->nullable()->constrained('sections');
             $table->string('issue')->nullable();
+            $table->string('postedDate')->nullable();
             $table->string('assDremarks')->nullable();
             $table->integer('assDremarksState')->default(1);
             $table->string('techRemarks')->nullable();

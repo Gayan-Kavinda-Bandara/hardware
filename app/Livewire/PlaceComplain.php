@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Carbon\Carbon;
 use Livewire\Component;
 use App\Models\Complain;
 use Illuminate\Support\Facades\DB;
@@ -36,6 +37,7 @@ class PlaceComplain extends Component
         'device_id' => $this->device_id,
         'section_id' => Auth::User()->section_id,
         'issue' => $this->issue,
+        'postedDate' => Carbon::now()->toDateString()
         ]);
 
         $this->reset();

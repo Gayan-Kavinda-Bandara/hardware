@@ -97,6 +97,38 @@
             </div>
           </div>
     </div>
+    @elseif (Auth::User()->user_level == 6)
+    <div class="p-2 m-2">
+        <div class="my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+              <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+                <table class="w-full divide-y divide-gray-200">
+                  <thead class="bg-orange-50 dark:bg-red-600 dark:text-orange-200">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-gray-200">Id</th>
+                      <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-gray-200">Status</th>
+
+                      <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase dark:text-gray-200">View and Action</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr></tr>
+                    @foreach ($complains as $complain)
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">{{ $complain->id }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap">Ongoing</td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <x-button class="bg-red-400 hover:bg-red-600" wire:click="showComplainOne({{ $complain->id }})">View</x-button>
+                        </td>
+                      </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+                <div class="p-2 m-2">Pagination</div>
+              </div>
+            </div>
+          </div>
+    </div>
     @endif
 
     {{--  For Assitant Director --}}

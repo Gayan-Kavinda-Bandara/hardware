@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             'contNo' => '0000000000',
             'section_id' => 3,
             'user_level' => 1,
-            'password' => Hash::make('password'),
+            'password' => Hash::make('password')
             ],
         ];
 
