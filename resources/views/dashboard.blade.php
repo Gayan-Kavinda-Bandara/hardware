@@ -25,6 +25,7 @@
     <div class="text-center space-x-14">
         <h1 class="font-sans text-xl text-red-600">IT Officer View</h1>
         <button wire:navigate href="/complainsAction" class="px-4 py-2 mt-4 font-bold text-black scale-125 rounded bg-lime-300 hover:bg-lime-600">Complains Action</button>
+        <button wire:navigate href="/ongoingComplains" class="px-4 py-2 mt-4 font-bold text-black scale-125 rounded bg-lime-300 hover:bg-lime-600">Ongoing Complains</button>
         <button wire:navigate href="/completedComplains" class="px-4 py-2 mt-4 font-bold text-black scale-125 rounded bg-lime-300 hover:bg-lime-600">Completed Complains</button>
     </div>
     @elseif (Auth::User()->user_level == 6)
